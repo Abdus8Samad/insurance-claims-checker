@@ -60,15 +60,25 @@ Gemini-vision toggle on requires credentials.
 
 ## Configuring Gemini (UI vision extraction)
 
-Copy `.env.example` to `.env`. The `GeminiClient` supports **two auth modes** via one factory:
+> [!IMPORTANT]
+> To use the live document extraction (the "Submit a Claim" tab), you need to export your
+> Gemini API key before launching the app:
+> ```bash
+> export GEMINI_API_KEY="your-gemini-api-key-here"
+> ```
+> Without it the app still loads, and the eval + tests still pass (they use the deterministic
+> path, no key needed) — but real Gemini vision extraction will fail with an auth error.
+
+The `GeminiClient` supports **two auth modes** via one factory (set `GEMINI_AUTH_MODE`):
 
 | `GEMINI_AUTH_MODE` | Needs | Backend |
 |---|---|---|
-| `service_account` (default) | `GOOGLE_APPLICATION_CREDENTIALS` (path to SA JSON), `VERTEX_LOCATION` | Vertex AI |
-| `api_key` | `GEMINI_API_KEY` | Gemini Developer API |
+| `api_key` (default) | `GEMINI_API_KEY` | Gemini Developer API |
+| `service_account` | `GOOGLE_APPLICATION_CREDENTIALS` (path to SA JSON), `VERTEX_LOCATION` | Vertex AI |
 
-`GEMINI_MODEL` defaults to `gemini-2.5-flash` (vision + native PDF). Both modes expose the
+`GEMINI_MODEL` defaults to `gemini-3.5-flash` (vision + native PDF). Both modes expose the
 identical call interface, so only the factory differs — switch modes by changing one env var.
+You can also copy `.env.example` to `.env` instead of exporting the variables by hand.
 
 ## Repository layout
 
