@@ -6,8 +6,8 @@ messages, extracts structured data from messy documents (Gemini vision), adjudic
 the policy, and produces an `APPROVED / PARTIAL / REJECTED / MANUAL_REVIEW` decision with an
 approved amount, reasons, a confidence score, and a full decision trace.
 
-- **Architecture & design rationale:** [`ARCHITECTURE.md`](ARCHITECTURE.md)
-- **Component contracts (inputs / outputs / errors):** [`CONTRACTS.md`](CONTRACTS.md)
+- **Architecture & design rationale:** [`ARCHITECTURE.md`](./plans/ARCHITECTURE.md)
+- **Component contracts (inputs / outputs / errors):** [`CONTRACTS.md`](./plans/CONTRACTS.md)
 - **Eval report (all 12 cases, full traces):** [`data/eval_report.md`](data/eval_report.md) — regenerate with `python -m eval.run_eval`
 
 ---
@@ -34,7 +34,7 @@ intake → extraction → [GATE] → waiting · exclusions · pre-auth · covera
                   stop w/ message                                                    precedence + confidence
 ```
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full reasoning, trade-offs, and 10× scaling notes.
+See [`ARCHITECTURE.md`](./plans/ARCHITECTURE.md) for the full reasoning, trade-offs, and 10× scaling notes.
 
 ---
 
