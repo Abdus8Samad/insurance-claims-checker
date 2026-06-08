@@ -1,0 +1,29 @@
+# Secrets
+.env
+*service-account*.json
+*service_account*.json
+
+# Runtime audit log (claim records written at runtime)
+data/audit/*.json
+
+# Note: data/eval_report.{md,json} is a committed deliverable (regenerate with
+# `python -m eval.run_eval`), so it is intentionally NOT ignored.
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.venv/
+venv/
+
+.claude
+
+.env.example
+
+# OS
+.DS_Store

@@ -1,0 +1,4126 @@
+[
+  {
+    "case_id": "TC001",
+    "case_name": "Wrong Document Uploaded",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision is null (gate stop)",
+        "ok": true
+      },
+      {
+        "label": "message is specific/non-empty",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_0acc4e8c53",
+      "decision": null,
+      "status": "NEEDS_RESUBMISSION",
+      "approved_amount": 0,
+      "reasons": [
+        "MISSING_DOC"
+      ],
+      "line_item_breakdown": [],
+      "financial_breakdown": {},
+      "confidence_score": 1.0,
+      "fraud_signals": [],
+      "notes": [
+        "Stopped at document verification; no claim decision was made."
+      ],
+      "degraded": false,
+      "user_message": "This CONSULTATION claim requires the following document type(s): PRESCRIPTION, HOSPITAL_BILL. You uploaded: 2\u00d7 PRESCRIPTION. Missing required document(s): HOSPITAL_BILL. Please upload the missing HOSPITAL_BILL and resubmit."
+    },
+    "trace": {
+      "claim_id": "CLM_0acc4e8c53",
+      "case_id": "TC001",
+      "created_at": "2026-06-09T01:31:11.455687",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.455729",
+          "ended_at": "2026-06-09T01:31:11.456033",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-12-01",
+              "as_of_date": "2024-11-01"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F001]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456100",
+          "ended_at": "2026-06-09T01:31:11.456110",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F001",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F002]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456144",
+          "ended_at": "2026-06-09T01:31:11.456151",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F002",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.456174",
+          "ended_at": "2026-06-09T01:31:11.456192",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": false,
+            "failure_kind": "MISSING_DOC",
+            "message": "This CONSULTATION claim requires the following document type(s): PRESCRIPTION, HOSPITAL_BILL. You uploaded: 2\u00d7 PRESCRIPTION. Missing required document(s): HOSPITAL_BILL. Please upload the missing HOSPITAL_BILL and resubmit."
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_0acc4e8c53",
+        "decision": null,
+        "status": "NEEDS_RESUBMISSION",
+        "approved_amount": 0,
+        "reasons": [
+          "MISSING_DOC"
+        ],
+        "line_item_breakdown": [],
+        "financial_breakdown": {},
+        "confidence_score": 1.0,
+        "fraud_signals": [],
+        "notes": [
+          "Stopped at document verification; no claim decision was made."
+        ],
+        "degraded": false,
+        "user_message": "This CONSULTATION claim requires the following document type(s): PRESCRIPTION, HOSPITAL_BILL. You uploaded: 2\u00d7 PRESCRIPTION. Missing required document(s): HOSPITAL_BILL. Please upload the missing HOSPITAL_BILL and resubmit."
+      }
+    }
+  },
+  {
+    "case_id": "TC002",
+    "case_name": "Unreadable Document",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision is null (gate stop)",
+        "ok": true
+      },
+      {
+        "label": "message is specific/non-empty",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_91a59cb74a",
+      "decision": null,
+      "status": "NEEDS_RESUBMISSION",
+      "approved_amount": 0,
+      "reasons": [
+        "UNREADABLE"
+      ],
+      "line_item_breakdown": [],
+      "financial_breakdown": {},
+      "confidence_score": 1.0,
+      "fraud_signals": [],
+      "notes": [
+        "Stopped at document verification; no claim decision was made."
+      ],
+      "degraded": false,
+      "user_message": "The document you uploaded as your PHARMACY_BILL (file 'F004') could not be read \u2014 it appears blurry or unreadable. Please re-upload a clearer photo or scan of your PHARMACY_BILL. The rest of your submission looks fine; only this document needs to be replaced."
+    },
+    "trace": {
+      "claim_id": "CLM_91a59cb74a",
+      "case_id": "TC002",
+      "created_at": "2026-06-09T01:31:11.456502",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456509",
+          "ended_at": "2026-06-09T01:31:11.456524",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-24",
+              "as_of_date": "2024-10-25"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F003]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456539",
+          "ended_at": "2026-06-09T01:31:11.456545",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F003",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F004]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456570",
+          "ended_at": "2026-06-09T01:31:11.456575",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F004",
+            "declared_type": "PHARMACY_BILL"
+          },
+          "output_summary": {
+            "doc_type": "PHARMACY_BILL",
+            "quality": "UNREADABLE",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.456599",
+          "ended_at": "2026-06-09T01:31:11.456616",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": false,
+            "failure_kind": "UNREADABLE",
+            "message": "The document you uploaded as your PHARMACY_BILL (file 'F004') could not be read \u2014 it appears blurry or unreadable. Please re-upload a clearer photo or scan of your PHARMACY_BILL. The rest of your submission looks fine; only this document needs to be replaced."
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_91a59cb74a",
+        "decision": null,
+        "status": "NEEDS_RESUBMISSION",
+        "approved_amount": 0,
+        "reasons": [
+          "UNREADABLE"
+        ],
+        "line_item_breakdown": [],
+        "financial_breakdown": {},
+        "confidence_score": 1.0,
+        "fraud_signals": [],
+        "notes": [
+          "Stopped at document verification; no claim decision was made."
+        ],
+        "degraded": false,
+        "user_message": "The document you uploaded as your PHARMACY_BILL (file 'F004') could not be read \u2014 it appears blurry or unreadable. Please re-upload a clearer photo or scan of your PHARMACY_BILL. The rest of your submission looks fine; only this document needs to be replaced."
+      }
+    }
+  },
+  {
+    "case_id": "TC003",
+    "case_name": "Documents Belong to Different Patients",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision is null (gate stop)",
+        "ok": true
+      },
+      {
+        "label": "message is specific/non-empty",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_731a0e0ebc",
+      "decision": null,
+      "status": "NEEDS_RESUBMISSION",
+      "approved_amount": 0,
+      "reasons": [
+        "PATIENT_MISMATCH"
+      ],
+      "line_item_breakdown": [],
+      "financial_breakdown": {},
+      "confidence_score": 1.0,
+      "fraud_signals": [],
+      "notes": [
+        "Stopped at document verification; no claim decision was made."
+      ],
+      "degraded": false,
+      "user_message": "The documents appear to belong to different patients: 'Rajesh Kumar' on file 'F005' and 'Arjun Mehta' on file 'F006'. All documents in a single claim must be for the same patient. Please check you have uploaded the correct documents and resubmit."
+    },
+    "trace": {
+      "claim_id": "CLM_731a0e0ebc",
+      "case_id": "TC003",
+      "created_at": "2026-06-09T01:31:11.456854",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456859",
+          "ended_at": "2026-06-09T01:31:11.456870",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-12-01",
+              "as_of_date": "2024-11-01"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F005]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456880",
+          "ended_at": "2026-06-09T01:31:11.456885",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F005",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": "Rajesh Kumar"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F006]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.456908",
+          "ended_at": "2026-06-09T01:31:11.456912",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F006",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": "Arjun Mehta"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.456931",
+          "ended_at": "2026-06-09T01:31:11.457040",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": false,
+            "failure_kind": "PATIENT_MISMATCH",
+            "message": "The documents appear to belong to different patients: 'Rajesh Kumar' on file 'F005' and 'Arjun Mehta' on file 'F006'. All documents in a single claim must be for the same patient. Please check you have uploaded the correct documents and resubmit."
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_731a0e0ebc",
+        "decision": null,
+        "status": "NEEDS_RESUBMISSION",
+        "approved_amount": 0,
+        "reasons": [
+          "PATIENT_MISMATCH"
+        ],
+        "line_item_breakdown": [],
+        "financial_breakdown": {},
+        "confidence_score": 1.0,
+        "fraud_signals": [],
+        "notes": [
+          "Stopped at document verification; no claim decision was made."
+        ],
+        "degraded": false,
+        "user_message": "The documents appear to belong to different patients: 'Rajesh Kumar' on file 'F005' and 'Arjun Mehta' on file 'F006'. All documents in a single claim must be for the same patient. Please check you have uploaded the correct documents and resubmit."
+      }
+    }
+  },
+  {
+    "case_id": "TC004",
+    "case_name": "Clean Consultation \u2014 Full Approval",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == APPROVED",
+        "ok": true
+      },
+      {
+        "label": "approved_amount == 1350",
+        "ok": true
+      },
+      {
+        "label": "confidence above 0.85",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_7d55231207",
+      "decision": "APPROVED",
+      "status": "APPROVED",
+      "approved_amount": 1350,
+      "reasons": [
+        "APPROVED"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "Consultation Fee",
+          "amount": 1000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        },
+        {
+          "description": "CBC Test",
+          "amount": 300,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        },
+        {
+          "description": "Dengue NS1 Test",
+          "amount": 200,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 1500
+          },
+          {
+            "step": "network_discount",
+            "hospital": "City Clinic, Bengaluru",
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 1500
+          },
+          {
+            "step": "copay",
+            "copay_percent": 10,
+            "copay_deducted": 150,
+            "amount": 1350
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 5000,
+            "annual_remaining": 45000,
+            "capped": false,
+            "amount": 1350
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [],
+      "degraded": false,
+      "user_message": null
+    },
+    "trace": {
+      "claim_id": "CLM_7d55231207",
+      "case_id": "TC004",
+      "created_at": "2026-06-09T01:31:11.457267",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457272",
+          "ended_at": "2026-06-09T01:31:11.457282",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-12-01",
+              "as_of_date": "2024-11-01"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F007]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457291",
+          "ended_at": "2026-06-09T01:31:11.457297",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F007",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": "Rajesh Kumar"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F008]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457318",
+          "ended_at": "2026-06-09T01:31:11.457323",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F008",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": "Rajesh Kumar"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457344",
+          "ended_at": "2026-06-09T01:31:11.457361",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457400",
+          "ended_at": "2026-06-09T01:31:11.457426",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457438",
+          "ended_at": "2026-06-09T01:31:11.457463",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457471",
+          "ended_at": "2026-06-09T01:31:11.457479",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457488",
+          "ended_at": "2026-06-09T01:31:11.457557",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "Consultation Fee",
+                  "amount": 1000
+                },
+                {
+                  "description": "CBC Test",
+                  "amount": 300
+                },
+                {
+                  "description": "Dengue NS1 Test",
+                  "amount": 200
+                }
+              ],
+              "excluded_items": [],
+              "min_map_confidence": 0.9
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457566",
+          "ended_at": "2026-06-09T01:31:11.457577",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_amount": 1500,
+              "claimed_amount": 1500,
+              "effective_ceiling": 5000,
+              "binding_limit": "per_claim_limit",
+              "binding_limit_value": 5000
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.457585",
+          "ended_at": "2026-06-09T01:31:11.457992",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 1350,
+              "covered_base": 1500,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 1500
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": "City Clinic, Bengaluru",
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 1500
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 10,
+                  "copay_deducted": 150,
+                  "amount": 1350
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 5000,
+                  "annual_remaining": 45000,
+                  "capped": false,
+                  "amount": 1350
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458003",
+          "ended_at": "2026-06-09T01:31:11.458020",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_7d55231207",
+        "decision": "APPROVED",
+        "status": "APPROVED",
+        "approved_amount": 1350,
+        "reasons": [
+          "APPROVED"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "Consultation Fee",
+            "amount": 1000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          },
+          {
+            "description": "CBC Test",
+            "amount": 300,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          },
+          {
+            "description": "Dengue NS1 Test",
+            "amount": 200,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 1500
+            },
+            {
+              "step": "network_discount",
+              "hospital": "City Clinic, Bengaluru",
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 1500
+            },
+            {
+              "step": "copay",
+              "copay_percent": 10,
+              "copay_deducted": 150,
+              "amount": 1350
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 5000,
+              "annual_remaining": 45000,
+              "capped": false,
+              "amount": 1350
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [],
+        "degraded": false,
+        "user_message": null
+      }
+    }
+  },
+  {
+    "case_id": "TC005",
+    "case_name": "Waiting Period \u2014 Diabetes",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == REJECTED",
+        "ok": true
+      },
+      {
+        "label": "reasons \u2287 ['WAITING_PERIOD']",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_60212106df",
+      "decision": "REJECTED",
+      "status": "REJECTED",
+      "approved_amount": 0,
+      "reasons": [
+        "WAITING_PERIOD"
+      ],
+      "line_item_breakdown": [],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 3000
+          },
+          {
+            "step": "network_discount",
+            "hospital": null,
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 3000
+          },
+          {
+            "step": "copay",
+            "copay_percent": 10,
+            "copay_deducted": 300,
+            "amount": 2700
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 0,
+            "annual_remaining": 50000,
+            "capped": false,
+            "amount": 2700
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [
+        "This claim is for diabetes, which has a 90-day waiting period from your policy start (2024-09-01). You will be eligible for diabetes-related claims from 2024-11-30."
+      ],
+      "degraded": false,
+      "user_message": "This claim is for diabetes, which has a 90-day waiting period from your policy start (2024-09-01). You will be eligible for diabetes-related claims from 2024-11-30."
+    },
+    "trace": {
+      "claim_id": "CLM_60212106df",
+      "case_id": "TC005",
+      "created_at": "2026-06-09T01:31:11.458503",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458508",
+          "ended_at": "2026-06-09T01:31:11.458519",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-14",
+              "as_of_date": "2024-10-15"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F009]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458530",
+          "ended_at": "2026-06-09T01:31:11.458536",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F009",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": "Vikram Joshi"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F010]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458559",
+          "ended_at": "2026-06-09T01:31:11.458563",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F010",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": "Vikram Joshi"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458584",
+          "ended_at": "2026-06-09T01:31:11.458600",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.458624",
+          "ended_at": "2026-06-09T01:31:11.458666",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "mapped_condition": "diabetes",
+              "waiting_days": 90,
+              "join_date": "2024-09-01",
+              "treatment_date": "2024-10-15",
+              "eligible_from": "2024-11-30",
+              "method": "keyword"
+            }
+          },
+          "reasons": [
+            "WAITING_PERIOD"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458675",
+          "ended_at": "2026-06-09T01:31:11.458700",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458708",
+          "ended_at": "2026-06-09T01:31:11.458716",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458723",
+          "ended_at": "2026-06-09T01:31:11.458727",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "line_items": 0,
+              "note": "no itemized lines; using claimed amount"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458735",
+          "ended_at": "2026-06-09T01:31:11.458744",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_amount": 3000,
+              "claimed_amount": 3000,
+              "effective_ceiling": 5000,
+              "binding_limit": "per_claim_limit",
+              "binding_limit_value": 5000
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458750",
+          "ended_at": "2026-06-09T01:31:11.458769",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 2700,
+              "covered_base": 3000,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 3000
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": null,
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 3000
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 10,
+                  "copay_deducted": 300,
+                  "amount": 2700
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 0,
+                  "annual_remaining": 50000,
+                  "capped": false,
+                  "amount": 2700
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.458777",
+          "ended_at": "2026-06-09T01:31:11.458788",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_60212106df",
+        "decision": "REJECTED",
+        "status": "REJECTED",
+        "approved_amount": 0,
+        "reasons": [
+          "WAITING_PERIOD"
+        ],
+        "line_item_breakdown": [],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 3000
+            },
+            {
+              "step": "network_discount",
+              "hospital": null,
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 3000
+            },
+            {
+              "step": "copay",
+              "copay_percent": 10,
+              "copay_deducted": 300,
+              "amount": 2700
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 0,
+              "annual_remaining": 50000,
+              "capped": false,
+              "amount": 2700
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [
+          "This claim is for diabetes, which has a 90-day waiting period from your policy start (2024-09-01). You will be eligible for diabetes-related claims from 2024-11-30."
+        ],
+        "degraded": false,
+        "user_message": "This claim is for diabetes, which has a 90-day waiting period from your policy start (2024-09-01). You will be eligible for diabetes-related claims from 2024-11-30."
+      }
+    }
+  },
+  {
+    "case_id": "TC006",
+    "case_name": "Dental Partial Approval \u2014 Cosmetic Exclusion",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == PARTIAL",
+        "ok": true
+      },
+      {
+        "label": "approved_amount == 8000",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_edf8299e2e",
+      "decision": "PARTIAL",
+      "status": "PARTIAL",
+      "approved_amount": 8000,
+      "reasons": [
+        "PARTIAL"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "Root Canal Treatment",
+          "amount": 8000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": "Root Canal Treatment",
+          "map_confidence": 0.95
+        },
+        {
+          "description": "Teeth Whitening",
+          "amount": 4000,
+          "covered": false,
+          "rejection_reason": "'Teeth Whitening' is excluded under the DENTAL category",
+          "mapped_to": "Teeth Whitening",
+          "map_confidence": 0.95
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 8000
+          },
+          {
+            "step": "network_discount",
+            "hospital": "Smile Dental Clinic",
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 8000
+          },
+          {
+            "step": "copay",
+            "copay_percent": 0,
+            "copay_deducted": 0,
+            "amount": 8000
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 0,
+            "annual_remaining": 50000,
+            "capped": false,
+            "amount": 8000
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [],
+      "degraded": false,
+      "user_message": "Some billed items were approved and others were excluded. Teeth Whitening excluded ('Teeth Whitening' is excluded under the DENTAL category)"
+    },
+    "trace": {
+      "claim_id": "CLM_edf8299e2e",
+      "case_id": "TC006",
+      "created_at": "2026-06-09T01:31:11.459035",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459040",
+          "ended_at": "2026-06-09T01:31:11.459049",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-14",
+              "as_of_date": "2024-10-15"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F011]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459058",
+          "ended_at": "2026-06-09T01:31:11.459064",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F011",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": "Priya Singh"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459089",
+          "ended_at": "2026-06-09T01:31:11.459098",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459125",
+          "ended_at": "2026-06-09T01:31:11.459144",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459152",
+          "ended_at": "2026-06-09T01:31:11.459176",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459185",
+          "ended_at": "2026-06-09T01:31:11.459191",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "FLAG",
+          "started_at": "2026-06-09T01:31:11.459200",
+          "ended_at": "2026-06-09T01:31:11.459241",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FLAG",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "Root Canal Treatment",
+                  "amount": 8000
+                }
+              ],
+              "excluded_items": [
+                {
+                  "description": "Teeth Whitening",
+                  "amount": 4000,
+                  "reason": "'Teeth Whitening' is excluded under the DENTAL category"
+                }
+              ],
+              "min_map_confidence": 0.95
+            }
+          },
+          "reasons": [
+            "Excluded: Teeth Whitening \u2014 'Teeth Whitening' is excluded under the DENTAL category"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459249",
+          "ended_at": "2026-06-09T01:31:11.459257",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_amount": 8000,
+              "claimed_amount": 12000,
+              "effective_ceiling": 10000,
+              "binding_limit": "sub_limit",
+              "binding_limit_value": 10000
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459264",
+          "ended_at": "2026-06-09T01:31:11.459278",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 8000,
+              "covered_base": 8000,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 8000
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": "Smile Dental Clinic",
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 8000
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 0,
+                  "copay_deducted": 0,
+                  "amount": 8000
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 0,
+                  "annual_remaining": 50000,
+                  "capped": false,
+                  "amount": 8000
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459286",
+          "ended_at": "2026-06-09T01:31:11.459297",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_edf8299e2e",
+        "decision": "PARTIAL",
+        "status": "PARTIAL",
+        "approved_amount": 8000,
+        "reasons": [
+          "PARTIAL"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "Root Canal Treatment",
+            "amount": 8000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": "Root Canal Treatment",
+            "map_confidence": 0.95
+          },
+          {
+            "description": "Teeth Whitening",
+            "amount": 4000,
+            "covered": false,
+            "rejection_reason": "'Teeth Whitening' is excluded under the DENTAL category",
+            "mapped_to": "Teeth Whitening",
+            "map_confidence": 0.95
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 8000
+            },
+            {
+              "step": "network_discount",
+              "hospital": "Smile Dental Clinic",
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 8000
+            },
+            {
+              "step": "copay",
+              "copay_percent": 0,
+              "copay_deducted": 0,
+              "amount": 8000
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 0,
+              "annual_remaining": 50000,
+              "capped": false,
+              "amount": 8000
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [],
+        "degraded": false,
+        "user_message": "Some billed items were approved and others were excluded. Teeth Whitening excluded ('Teeth Whitening' is excluded under the DENTAL category)"
+      }
+    }
+  },
+  {
+    "case_id": "TC007",
+    "case_name": "MRI Without Pre-Authorization",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == REJECTED",
+        "ok": true
+      },
+      {
+        "label": "reasons \u2287 ['PRE_AUTH_MISSING']",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_bf1029698c",
+      "decision": "REJECTED",
+      "status": "REJECTED",
+      "approved_amount": 0,
+      "reasons": [
+        "WAITING_PERIOD",
+        "PRE_AUTH_MISSING",
+        "PER_CLAIM_EXCEEDED"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "MRI Lumbar Spine",
+          "amount": 15000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 15000
+          },
+          {
+            "step": "network_discount",
+            "hospital": null,
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 15000
+          },
+          {
+            "step": "copay",
+            "copay_percent": 0,
+            "copay_deducted": 0,
+            "amount": 15000
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 0,
+            "annual_remaining": 50000,
+            "capped": false,
+            "amount": 15000
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [
+        "This claim is for hernia, which has a 365-day waiting period from your policy start (2024-04-01). You will be eligible for hernia-related claims from 2025-04-01.",
+        "MRI above \u20b910,000 requires pre-authorization before the procedure, which was not obtained for this claim. To resubmit: obtain pre-authorization from the insurer for the MRI, then submit the claim with the pre-authorization reference number attached.",
+        "The covered amount of \u20b915,000 exceeds the DIAGNOSTIC sub-limit of \u20b910,000. The claim cannot be approved as submitted."
+      ],
+      "degraded": false,
+      "user_message": "This claim is for hernia, which has a 365-day waiting period from your policy start (2024-04-01). You will be eligible for hernia-related claims from 2025-04-01. MRI above \u20b910,000 requires pre-authorization before the procedure, which was not obtained for this claim. To resubmit: obtain pre-authorization from the insurer for the MRI, then submit the claim with the pre-authorization reference number attached. The covered amount of \u20b915,000 exceeds the DIAGNOSTIC sub-limit of \u20b910,000. The claim cannot be approved as submitted."
+    },
+    "trace": {
+      "claim_id": "CLM_bf1029698c",
+      "case_id": "TC007",
+      "created_at": "2026-06-09T01:31:11.459526",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459530",
+          "ended_at": "2026-06-09T01:31:11.459540",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-12-02",
+              "as_of_date": "2024-11-02"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F012]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459549",
+          "ended_at": "2026-06-09T01:31:11.459556",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F012",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F013]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459579",
+          "ended_at": "2026-06-09T01:31:11.459583",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F013",
+            "declared_type": "LAB_REPORT"
+          },
+          "output_summary": {
+            "doc_type": "LAB_REPORT",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F014]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459602",
+          "ended_at": "2026-06-09T01:31:11.459607",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F014",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459625",
+          "ended_at": "2026-06-09T01:31:11.459635",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.459663",
+          "ended_at": "2026-06-09T01:31:11.459693",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "mapped_condition": "hernia",
+              "waiting_days": 365,
+              "join_date": "2024-04-01",
+              "treatment_date": "2024-11-02",
+              "eligible_from": "2025-04-01",
+              "method": "keyword"
+            }
+          },
+          "reasons": [
+            "WAITING_PERIOD"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459701",
+          "ended_at": "2026-06-09T01:31:11.459723",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.459731",
+          "ended_at": "2026-06-09T01:31:11.459758",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "applicable": true,
+              "high_value_test_found": "MRI",
+              "threshold": 10000,
+              "claimed_amount": 15000,
+              "over_threshold": true,
+              "pre_auth_reference_present": false
+            }
+          },
+          "reasons": [
+            "PRE_AUTH_MISSING"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459767",
+          "ended_at": "2026-06-09T01:31:11.459781",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "MRI Lumbar Spine",
+                  "amount": 15000
+                }
+              ],
+              "excluded_items": [],
+              "min_map_confidence": 0.9
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.459790",
+          "ended_at": "2026-06-09T01:31:11.459802",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "covered_amount": 15000,
+              "claimed_amount": 15000,
+              "effective_ceiling": 10000,
+              "binding_limit": "sub_limit",
+              "binding_limit_value": 10000
+            }
+          },
+          "reasons": [
+            "PER_CLAIM_EXCEEDED"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459809",
+          "ended_at": "2026-06-09T01:31:11.459820",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 15000,
+              "covered_base": 15000,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 15000
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": null,
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 15000
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 0,
+                  "copay_deducted": 0,
+                  "amount": 15000
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 0,
+                  "annual_remaining": 50000,
+                  "capped": false,
+                  "amount": 15000
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.459827",
+          "ended_at": "2026-06-09T01:31:11.459836",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_bf1029698c",
+        "decision": "REJECTED",
+        "status": "REJECTED",
+        "approved_amount": 0,
+        "reasons": [
+          "WAITING_PERIOD",
+          "PRE_AUTH_MISSING",
+          "PER_CLAIM_EXCEEDED"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "MRI Lumbar Spine",
+            "amount": 15000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 15000
+            },
+            {
+              "step": "network_discount",
+              "hospital": null,
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 15000
+            },
+            {
+              "step": "copay",
+              "copay_percent": 0,
+              "copay_deducted": 0,
+              "amount": 15000
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 0,
+              "annual_remaining": 50000,
+              "capped": false,
+              "amount": 15000
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [
+          "This claim is for hernia, which has a 365-day waiting period from your policy start (2024-04-01). You will be eligible for hernia-related claims from 2025-04-01.",
+          "MRI above \u20b910,000 requires pre-authorization before the procedure, which was not obtained for this claim. To resubmit: obtain pre-authorization from the insurer for the MRI, then submit the claim with the pre-authorization reference number attached.",
+          "The covered amount of \u20b915,000 exceeds the DIAGNOSTIC sub-limit of \u20b910,000. The claim cannot be approved as submitted."
+        ],
+        "degraded": false,
+        "user_message": "This claim is for hernia, which has a 365-day waiting period from your policy start (2024-04-01). You will be eligible for hernia-related claims from 2025-04-01. MRI above \u20b910,000 requires pre-authorization before the procedure, which was not obtained for this claim. To resubmit: obtain pre-authorization from the insurer for the MRI, then submit the claim with the pre-authorization reference number attached. The covered amount of \u20b915,000 exceeds the DIAGNOSTIC sub-limit of \u20b910,000. The claim cannot be approved as submitted."
+      }
+    }
+  },
+  {
+    "case_id": "TC008",
+    "case_name": "Per-Claim Limit Exceeded",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == REJECTED",
+        "ok": true
+      },
+      {
+        "label": "reasons \u2287 ['PER_CLAIM_EXCEEDED']",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_472770fd6f",
+      "decision": "REJECTED",
+      "status": "REJECTED",
+      "approved_amount": 0,
+      "reasons": [
+        "PER_CLAIM_EXCEEDED"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "Consultation Fee",
+          "amount": 2000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        },
+        {
+          "description": "Medicines",
+          "amount": 5500,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 7500
+          },
+          {
+            "step": "network_discount",
+            "hospital": null,
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 7500
+          },
+          {
+            "step": "copay",
+            "copay_percent": 10,
+            "copay_deducted": 750,
+            "amount": 6750
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 10000,
+            "annual_remaining": 40000,
+            "capped": false,
+            "amount": 6750
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [
+        "The claimed amount of \u20b97,500 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+      ],
+      "degraded": false,
+      "user_message": "The claimed amount of \u20b97,500 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+    },
+    "trace": {
+      "claim_id": "CLM_472770fd6f",
+      "case_id": "TC008",
+      "created_at": "2026-06-09T01:31:11.460065",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460069",
+          "ended_at": "2026-06-09T01:31:11.460079",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-19",
+              "as_of_date": "2024-10-20"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F015]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460088",
+          "ended_at": "2026-06-09T01:31:11.460093",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F015",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F016]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460115",
+          "ended_at": "2026-06-09T01:31:11.460119",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F016",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460138",
+          "ended_at": "2026-06-09T01:31:11.460147",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460172",
+          "ended_at": "2026-06-09T01:31:11.460189",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460199",
+          "ended_at": "2026-06-09T01:31:11.460219",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460226",
+          "ended_at": "2026-06-09T01:31:11.460231",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460239",
+          "ended_at": "2026-06-09T01:31:11.460258",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "Consultation Fee",
+                  "amount": 2000
+                },
+                {
+                  "description": "Medicines",
+                  "amount": 5500
+                }
+              ],
+              "excluded_items": [],
+              "min_map_confidence": 0.9
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.460265",
+          "ended_at": "2026-06-09T01:31:11.460278",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "covered_amount": 7500,
+              "claimed_amount": 7500,
+              "effective_ceiling": 5000,
+              "binding_limit": "per_claim_limit",
+              "binding_limit_value": 5000
+            }
+          },
+          "reasons": [
+            "PER_CLAIM_EXCEEDED"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460286",
+          "ended_at": "2026-06-09T01:31:11.460301",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 6750,
+              "covered_base": 7500,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 7500
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": null,
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 7500
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 10,
+                  "copay_deducted": 750,
+                  "amount": 6750
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 10000,
+                  "annual_remaining": 40000,
+                  "capped": false,
+                  "amount": 6750
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460308",
+          "ended_at": "2026-06-09T01:31:11.460318",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_472770fd6f",
+        "decision": "REJECTED",
+        "status": "REJECTED",
+        "approved_amount": 0,
+        "reasons": [
+          "PER_CLAIM_EXCEEDED"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "Consultation Fee",
+            "amount": 2000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          },
+          {
+            "description": "Medicines",
+            "amount": 5500,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 7500
+            },
+            {
+              "step": "network_discount",
+              "hospital": null,
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 7500
+            },
+            {
+              "step": "copay",
+              "copay_percent": 10,
+              "copay_deducted": 750,
+              "amount": 6750
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 10000,
+              "annual_remaining": 40000,
+              "capped": false,
+              "amount": 6750
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [
+          "The claimed amount of \u20b97,500 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+        ],
+        "degraded": false,
+        "user_message": "The claimed amount of \u20b97,500 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+      }
+    }
+  },
+  {
+    "case_id": "TC009",
+    "case_name": "Fraud Signal \u2014 Multiple Same-Day Claims",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == MANUAL_REVIEW",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_9a14d45dee",
+      "decision": "MANUAL_REVIEW",
+      "status": "MANUAL_REVIEW",
+      "approved_amount": 4320,
+      "reasons": [
+        "MANUAL_REVIEW"
+      ],
+      "line_item_breakdown": [],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 4800
+          },
+          {
+            "step": "network_discount",
+            "hospital": null,
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 4800
+          },
+          {
+            "step": "copay",
+            "copay_percent": 10,
+            "copay_deducted": 480,
+            "amount": 4320
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 0,
+            "annual_remaining": 50000,
+            "capped": false,
+            "amount": 4320
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [
+        "Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+      ],
+      "notes": [
+        "Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+      ],
+      "degraded": false,
+      "user_message": "This claim has been routed to manual review. Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+    },
+    "trace": {
+      "claim_id": "CLM_9a14d45dee",
+      "case_id": "TC009",
+      "created_at": "2026-06-09T01:31:11.460544",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460549",
+          "ended_at": "2026-06-09T01:31:11.460558",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-29",
+              "as_of_date": "2024-10-30"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F017]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460569",
+          "ended_at": "2026-06-09T01:31:11.460574",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F017",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F018]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460596",
+          "ended_at": "2026-06-09T01:31:11.460600",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F018",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460622",
+          "ended_at": "2026-06-09T01:31:11.460632",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460654",
+          "ended_at": "2026-06-09T01:31:11.460673",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460681",
+          "ended_at": "2026-06-09T01:31:11.460700",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460706",
+          "ended_at": "2026-06-09T01:31:11.460715",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460722",
+          "ended_at": "2026-06-09T01:31:11.460726",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "line_items": 0,
+              "note": "no itemized lines; using claimed amount"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460732",
+          "ended_at": "2026-06-09T01:31:11.460740",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_amount": 4800,
+              "claimed_amount": 4800,
+              "effective_ceiling": 5000,
+              "binding_limit": "per_claim_limit",
+              "binding_limit_value": 5000
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.460748",
+          "ended_at": "2026-06-09T01:31:11.460763",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 4320,
+              "covered_base": 4800,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 4800
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": null,
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 4800
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 10,
+                  "copay_deducted": 480,
+                  "amount": 4320
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 0,
+                  "annual_remaining": 50000,
+                  "capped": false,
+                  "amount": 4320
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "FLAG",
+          "started_at": "2026-06-09T01:31:11.460770",
+          "ended_at": "2026-06-09T01:31:11.460786",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "FLAG",
+            "data": {
+              "same_day_count": 4,
+              "monthly_count": 4,
+              "fraud_score": 0.85,
+              "signals": [
+                "Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+              ],
+              "manual_review": true
+            }
+          },
+          "reasons": [
+            "Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_9a14d45dee",
+        "decision": "MANUAL_REVIEW",
+        "status": "MANUAL_REVIEW",
+        "approved_amount": 4320,
+        "reasons": [
+          "MANUAL_REVIEW"
+        ],
+        "line_item_breakdown": [],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 4800
+            },
+            {
+              "step": "network_discount",
+              "hospital": null,
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 4800
+            },
+            {
+              "step": "copay",
+              "copay_percent": 10,
+              "copay_deducted": 480,
+              "amount": 4320
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 0,
+              "annual_remaining": 50000,
+              "capped": false,
+              "amount": 4320
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [
+          "Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+        ],
+        "notes": [
+          "Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+        ],
+        "degraded": false,
+        "user_message": "This claim has been routed to manual review. Same-day claims: 4 claims on 2024-10-30 exceeds the limit of 2"
+      }
+    }
+  },
+  {
+    "case_id": "TC010",
+    "case_name": "Network Hospital \u2014 Discount Applied",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == APPROVED",
+        "ok": true
+      },
+      {
+        "label": "approved_amount == 3240",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_31c5f8aa4b",
+      "decision": "APPROVED",
+      "status": "APPROVED",
+      "approved_amount": 3240,
+      "reasons": [
+        "APPROVED"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "Consultation Fee",
+          "amount": 1500,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        },
+        {
+          "description": "Medicines",
+          "amount": 3000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 4500
+          },
+          {
+            "step": "network_discount",
+            "hospital": "Apollo Hospitals",
+            "is_network": true,
+            "discount_percent": 20,
+            "amount": 3600
+          },
+          {
+            "step": "copay",
+            "copay_percent": 10,
+            "copay_deducted": 360,
+            "amount": 3240
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 8000,
+            "annual_remaining": 42000,
+            "capped": false,
+            "amount": 3240
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [],
+      "degraded": false,
+      "user_message": null
+    },
+    "trace": {
+      "claim_id": "CLM_31c5f8aa4b",
+      "case_id": "TC010",
+      "created_at": "2026-06-09T01:31:11.461000",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461005",
+          "ended_at": "2026-06-09T01:31:11.461014",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-12-03",
+              "as_of_date": "2024-11-03"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F019]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461023",
+          "ended_at": "2026-06-09T01:31:11.461029",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F019",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": "Deepak Shah"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F020]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461051",
+          "ended_at": "2026-06-09T01:31:11.461055",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F020",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": "Deepak Shah"
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461074",
+          "ended_at": "2026-06-09T01:31:11.461091",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461116",
+          "ended_at": "2026-06-09T01:31:11.461133",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461142",
+          "ended_at": "2026-06-09T01:31:11.461163",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461170",
+          "ended_at": "2026-06-09T01:31:11.461175",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461182",
+          "ended_at": "2026-06-09T01:31:11.461199",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "Consultation Fee",
+                  "amount": 1500
+                },
+                {
+                  "description": "Medicines",
+                  "amount": 3000
+                }
+              ],
+              "excluded_items": [],
+              "min_map_confidence": 0.9
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461206",
+          "ended_at": "2026-06-09T01:31:11.461213",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_amount": 4500,
+              "claimed_amount": 4500,
+              "effective_ceiling": 5000,
+              "binding_limit": "per_claim_limit",
+              "binding_limit_value": 5000
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461221",
+          "ended_at": "2026-06-09T01:31:11.461239",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 3240,
+              "covered_base": 4500,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 4500
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": "Apollo Hospitals",
+                  "is_network": true,
+                  "discount_percent": 20,
+                  "amount": 3600
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 10,
+                  "copay_deducted": 360,
+                  "amount": 3240
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 8000,
+                  "annual_remaining": 42000,
+                  "capped": false,
+                  "amount": 3240
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461246",
+          "ended_at": "2026-06-09T01:31:11.461255",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_31c5f8aa4b",
+        "decision": "APPROVED",
+        "status": "APPROVED",
+        "approved_amount": 3240,
+        "reasons": [
+          "APPROVED"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "Consultation Fee",
+            "amount": 1500,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          },
+          {
+            "description": "Medicines",
+            "amount": 3000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 4500
+            },
+            {
+              "step": "network_discount",
+              "hospital": "Apollo Hospitals",
+              "is_network": true,
+              "discount_percent": 20,
+              "amount": 3600
+            },
+            {
+              "step": "copay",
+              "copay_percent": 10,
+              "copay_deducted": 360,
+              "amount": 3240
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 8000,
+              "annual_remaining": 42000,
+              "capped": false,
+              "amount": 3240
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [],
+        "degraded": false,
+        "user_message": null
+      }
+    }
+  },
+  {
+    "case_id": "TC011",
+    "case_name": "Component Failure \u2014 Graceful Degradation",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == APPROVED",
+        "ok": true
+      },
+      {
+        "label": "degraded flag set",
+        "ok": true
+      },
+      {
+        "label": "manual-review note present",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_817c174201",
+      "decision": "APPROVED",
+      "status": "APPROVED",
+      "approved_amount": 4000,
+      "reasons": [
+        "APPROVED"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "Panchakarma Therapy (5 sessions)",
+          "amount": 3000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        },
+        {
+          "description": "Consultation",
+          "amount": 1000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 4000
+          },
+          {
+            "step": "network_discount",
+            "hospital": "Ayur Wellness Centre",
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 4000
+          },
+          {
+            "step": "copay",
+            "copay_percent": 0,
+            "copay_deducted": 0,
+            "amount": 4000
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 0,
+            "annual_remaining": 50000,
+            "capped": false,
+            "amount": 4000
+          }
+        ]
+      },
+      "confidence_score": 0.75,
+      "fraud_signals": [],
+      "notes": [
+        "Manual review recommended: processing was incomplete \u2014 the following component(s) failed and were skipped: fraud. The decision was made from the remaining checks and confidence was reduced accordingly."
+      ],
+      "degraded": true,
+      "user_message": "Manual review recommended: processing was incomplete \u2014 the following component(s) failed and were skipped: fraud. The decision was made from the remaining checks and confidence was reduced accordingly."
+    },
+    "trace": {
+      "claim_id": "CLM_817c174201",
+      "case_id": "TC011",
+      "created_at": "2026-06-09T01:31:11.461471",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461475",
+          "ended_at": "2026-06-09T01:31:11.461484",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-27",
+              "as_of_date": "2024-10-28"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F021]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461493",
+          "ended_at": "2026-06-09T01:31:11.461498",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F021",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F022]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461519",
+          "ended_at": "2026-06-09T01:31:11.461523",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F022",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461542",
+          "ended_at": "2026-06-09T01:31:11.461550",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461575",
+          "ended_at": "2026-06-09T01:31:11.461595",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461604",
+          "ended_at": "2026-06-09T01:31:11.461626",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "matched_exclusion": null
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461633",
+          "ended_at": "2026-06-09T01:31:11.461639",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461645",
+          "ended_at": "2026-06-09T01:31:11.461663",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "Panchakarma Therapy (5 sessions)",
+                  "amount": 3000
+                },
+                {
+                  "description": "Consultation",
+                  "amount": 1000
+                }
+              ],
+              "excluded_items": [],
+              "min_map_confidence": 0.9
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461670",
+          "ended_at": "2026-06-09T01:31:11.461678",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_amount": 4000,
+              "claimed_amount": 4000,
+              "effective_ceiling": 8000,
+              "binding_limit": "sub_limit",
+              "binding_limit_value": 8000
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461686",
+          "ended_at": "2026-06-09T01:31:11.461700",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 4000,
+              "covered_base": 4000,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 4000
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": "Ayur Wellness Centre",
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 4000
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 0,
+                  "copay_deducted": 0,
+                  "amount": 4000
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 0,
+                  "annual_remaining": 50000,
+                  "capped": false,
+                  "amount": 4000
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "ERROR",
+          "started_at": "2026-06-09T01:31:11.461707",
+          "ended_at": "2026-06-09T01:31:11.461709",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {},
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": "_ForcedFailure: Simulated failure of the fraud component (TC011)"
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_817c174201",
+        "decision": "APPROVED",
+        "status": "APPROVED",
+        "approved_amount": 4000,
+        "reasons": [
+          "APPROVED"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "Panchakarma Therapy (5 sessions)",
+            "amount": 3000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          },
+          {
+            "description": "Consultation",
+            "amount": 1000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 4000
+            },
+            {
+              "step": "network_discount",
+              "hospital": "Ayur Wellness Centre",
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 4000
+            },
+            {
+              "step": "copay",
+              "copay_percent": 0,
+              "copay_deducted": 0,
+              "amount": 4000
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 0,
+              "annual_remaining": 50000,
+              "capped": false,
+              "amount": 4000
+            }
+          ]
+        },
+        "confidence_score": 0.75,
+        "fraud_signals": [],
+        "notes": [
+          "Manual review recommended: processing was incomplete \u2014 the following component(s) failed and were skipped: fraud. The decision was made from the remaining checks and confidence was reduced accordingly."
+        ],
+        "degraded": true,
+        "user_message": "Manual review recommended: processing was incomplete \u2014 the following component(s) failed and were skipped: fraud. The decision was made from the remaining checks and confidence was reduced accordingly."
+      }
+    }
+  },
+  {
+    "case_id": "TC012",
+    "case_name": "Excluded Treatment",
+    "passed": true,
+    "checks": [
+      {
+        "label": "decision == REJECTED",
+        "ok": true
+      },
+      {
+        "label": "reasons \u2287 ['EXCLUDED_CONDITION']",
+        "ok": true
+      },
+      {
+        "label": "confidence above 0.90",
+        "ok": true
+      }
+    ],
+    "decision": {
+      "claim_id": "CLM_08d83c4184",
+      "decision": "REJECTED",
+      "status": "REJECTED",
+      "approved_amount": 0,
+      "reasons": [
+        "EXCLUDED_CONDITION",
+        "PER_CLAIM_EXCEEDED"
+      ],
+      "line_item_breakdown": [
+        {
+          "description": "Bariatric Consultation",
+          "amount": 3000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        },
+        {
+          "description": "Personalised Diet and Nutrition Program",
+          "amount": 5000,
+          "covered": true,
+          "rejection_reason": null,
+          "mapped_to": null,
+          "map_confidence": 0.9
+        }
+      ],
+      "financial_breakdown": {
+        "breakdown": [
+          {
+            "step": "covered_base",
+            "amount": 8000
+          },
+          {
+            "step": "network_discount",
+            "hospital": null,
+            "is_network": false,
+            "discount_percent": 0,
+            "amount": 8000
+          },
+          {
+            "step": "copay",
+            "copay_percent": 10,
+            "copay_deducted": 800,
+            "amount": 7200
+          },
+          {
+            "step": "annual_cap",
+            "annual_opd_limit": 50000,
+            "ytd_claims_amount": 0,
+            "annual_remaining": 50000,
+            "capped": false,
+            "amount": 7200
+          }
+        ]
+      },
+      "confidence_score": 0.95,
+      "fraud_signals": [],
+      "notes": [
+        "This claim relates to 'Obesity and weight loss programs', which is explicitly excluded under your policy and cannot be reimbursed.",
+        "The claimed amount of \u20b98,000 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+      ],
+      "degraded": false,
+      "user_message": "This claim relates to 'Obesity and weight loss programs', which is explicitly excluded under your policy and cannot be reimbursed. The claimed amount of \u20b98,000 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+    },
+    "trace": {
+      "claim_id": "CLM_08d83c4184",
+      "case_id": "TC012",
+      "created_at": "2026-06-09T01:31:11.461930",
+      "steps": [
+        {
+          "stage": "intake",
+          "component": "IntakeValidator",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461934",
+          "ended_at": "2026-06-09T01:31:11.461943",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "submission_deadline": "2024-11-17",
+              "as_of_date": "2024-10-18"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F023]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461952",
+          "ended_at": "2026-06-09T01:31:11.461957",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F023",
+            "declared_type": "PRESCRIPTION"
+          },
+          "output_summary": {
+            "doc_type": "PRESCRIPTION",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "extraction",
+          "component": "Extractor[F024]",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.461978",
+          "ended_at": "2026-06-09T01:31:11.461982",
+          "duration_ms": 0,
+          "input_summary": {
+            "file_id": "F024",
+            "declared_type": "HOSPITAL_BILL"
+          },
+          "output_summary": {
+            "doc_type": "HOSPITAL_BILL",
+            "quality": "GOOD",
+            "patient_name": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "document_verification",
+          "component": "DocumentVerifier",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.462001",
+          "ended_at": "2026-06-09T01:31:11.462009",
+          "duration_ms": 0,
+          "input_summary": {},
+          "output_summary": {
+            "passed": true,
+            "failure_kind": null,
+            "message": null
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "WaitingPeriodCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.462034",
+          "ended_at": "2026-06-09T01:31:11.462064",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "waiting_period",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "mapped_condition": null,
+              "method": "keyword"
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "ExclusionCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.462071",
+          "ended_at": "2026-06-09T01:31:11.462085",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "exclusions",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "matched_exclusion": "Obesity and weight loss programs",
+              "method": "keyword"
+            }
+          },
+          "reasons": [
+            "EXCLUDED_CONDITION"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "PreAuthCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.462092",
+          "ended_at": "2026-06-09T01:31:11.462099",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "pre_auth",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "applicable": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "CoverageCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.462108",
+          "ended_at": "2026-06-09T01:31:11.462166",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "coverage",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "covered_items": [
+                {
+                  "description": "Bariatric Consultation",
+                  "amount": 3000
+                },
+                {
+                  "description": "Personalised Diet and Nutrition Program",
+                  "amount": 5000
+                }
+              ],
+              "excluded_items": [],
+              "min_map_confidence": 0.9
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "LimitCheck",
+          "status": "FAIL",
+          "started_at": "2026-06-09T01:31:11.462173",
+          "ended_at": "2026-06-09T01:31:11.462184",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "limits",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "FAIL",
+            "data": {
+              "covered_amount": 8000,
+              "claimed_amount": 8000,
+              "effective_ceiling": 5000,
+              "binding_limit": "per_claim_limit",
+              "binding_limit_value": 5000
+            }
+          },
+          "reasons": [
+            "PER_CLAIM_EXCEEDED"
+          ],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FinancialCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.462191",
+          "ended_at": "2026-06-09T01:31:11.462204",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "financial",
+            "critical": true
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "payable": 7200,
+              "covered_base": 8000,
+              "breakdown": [
+                {
+                  "step": "covered_base",
+                  "amount": 8000
+                },
+                {
+                  "step": "network_discount",
+                  "hospital": null,
+                  "is_network": false,
+                  "discount_percent": 0,
+                  "amount": 8000
+                },
+                {
+                  "step": "copay",
+                  "copay_percent": 10,
+                  "copay_deducted": 800,
+                  "amount": 7200
+                },
+                {
+                  "step": "annual_cap",
+                  "annual_opd_limit": 50000,
+                  "ytd_claims_amount": 0,
+                  "annual_remaining": 50000,
+                  "capped": false,
+                  "amount": 7200
+                }
+              ]
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        },
+        {
+          "stage": "adjudication",
+          "component": "FraudCheck",
+          "status": "PASS",
+          "started_at": "2026-06-09T01:31:11.462213",
+          "ended_at": "2026-06-09T01:31:11.462222",
+          "duration_ms": 0,
+          "input_summary": {
+            "check": "fraud",
+            "critical": false
+          },
+          "output_summary": {
+            "status": "PASS",
+            "data": {
+              "same_day_count": 1,
+              "monthly_count": 1,
+              "fraud_score": 0.0,
+              "signals": [],
+              "manual_review": false
+            }
+          },
+          "reasons": [],
+          "confidence_delta": 0.0,
+          "error": null
+        }
+      ],
+      "final_decision": {
+        "claim_id": "CLM_08d83c4184",
+        "decision": "REJECTED",
+        "status": "REJECTED",
+        "approved_amount": 0,
+        "reasons": [
+          "EXCLUDED_CONDITION",
+          "PER_CLAIM_EXCEEDED"
+        ],
+        "line_item_breakdown": [
+          {
+            "description": "Bariatric Consultation",
+            "amount": 3000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          },
+          {
+            "description": "Personalised Diet and Nutrition Program",
+            "amount": 5000,
+            "covered": true,
+            "rejection_reason": null,
+            "mapped_to": null,
+            "map_confidence": 0.9
+          }
+        ],
+        "financial_breakdown": {
+          "breakdown": [
+            {
+              "step": "covered_base",
+              "amount": 8000
+            },
+            {
+              "step": "network_discount",
+              "hospital": null,
+              "is_network": false,
+              "discount_percent": 0,
+              "amount": 8000
+            },
+            {
+              "step": "copay",
+              "copay_percent": 10,
+              "copay_deducted": 800,
+              "amount": 7200
+            },
+            {
+              "step": "annual_cap",
+              "annual_opd_limit": 50000,
+              "ytd_claims_amount": 0,
+              "annual_remaining": 50000,
+              "capped": false,
+              "amount": 7200
+            }
+          ]
+        },
+        "confidence_score": 0.95,
+        "fraud_signals": [],
+        "notes": [
+          "This claim relates to 'Obesity and weight loss programs', which is explicitly excluded under your policy and cannot be reimbursed.",
+          "The claimed amount of \u20b98,000 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+        ],
+        "degraded": false,
+        "user_message": "This claim relates to 'Obesity and weight loss programs', which is explicitly excluded under your policy and cannot be reimbursed. The claimed amount of \u20b98,000 exceeds the per-claim limit of \u20b95,000 for this policy. The claim cannot be approved as submitted."
+      }
+    }
+  }
+]

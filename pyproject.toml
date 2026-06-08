@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plum-claims"
+version = "0.1.0"
+description = "Health Insurance Claims Processing System — multi-agent pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6",
+    "streamlit>=1.33",
+    "google-genai>=1.0",
+    "google-auth>=2.28",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = [
+    "integration: hits a real Gemini backend (skipped unless creds present)",
+]
+
+[tool.coverage.run]
+source = ["claims"]
