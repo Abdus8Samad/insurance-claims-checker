@@ -1,0 +1,28 @@
+ONE DECISION I'M PROUD OF
+-------------------------
+The thing I'm most happy with is that I kept the LLM and the actual
+decision completely separate. Gemini only reads the documents - it works
+out what kind of document it is and pulls out the fields. It never decides
+anything about money. All the math and the policy rules are just plain
+Python that reads the limits straight from the policy file.
+
+I did it this way because with insurance you can't have a payout you can't
+explain or test. So the numbers come out the same every time, I can write
+tests that check the exact amount, and the trace shows exactly which rule
+caused which result. And if Gemini is ever down, the rules still run.
+
+
+ONE DECISION I'D CHANGE WITH MORE TIME
+--------------------------------------
+The main thing I'd change is that right now everything runs one at a time
+in a single process, and the documents are loaded fully into memory.
+
+A few things I'd do: process the documents in parallel, since they don't
+depend on each other. And stop sending the raw file bytes to Gemini - for
+a big PDF that can blow up the pod's memory, so I'd upload the file to
+storage first and just send Gemini a link to it instead. I'd also add
+proper logging that goes to Kibana so we can keep an eye on how decisions
+look across thousands of claims.
+
+There's a longer list in the architecture doc - like storing the policies
+in a database as we scale - but these are the ones I'd start with.
